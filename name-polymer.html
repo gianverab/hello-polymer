@@ -1,0 +1,20 @@
+
+
+<dom-module id="name-polymer">
+	<template>
+		<span>{{name}}</span>
+		
+	</template>
+	<script>
+		Polymer({
+			is: 'name-polymer',
+			properties: {
+				name: {
+					type: String,
+					value: "default",
+					notify: true
+				}
+			}
+		});
+	</script>
+</dom-module>

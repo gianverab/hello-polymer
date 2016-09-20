@@ -1,5 +1,6 @@
 <!-- HTML Imports -->
-<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../paper-input/paper-input.html">
+<link rel="import" href="./name-polymer.html">
 
 <dom-module id="hello-polymer">
   <template>
@@ -8,8 +9,9 @@
         display: block;
       }
     </style>
-    <h1>Hello [[name]],</h1>
-    <h2>You are [[age]] years old.</h2> 
+    <paper-input label="Nombre" value="{{name}}"></paper-input>
+    <h1>Hello, <name-polymer name="{{name}}"></name-polymer></h1>
+    <h2>You're [[age]] years old.</h2> 
     <content></content>
   </template>
   <script>
@@ -25,18 +27,13 @@
         }
       },
       created: function () {
-        console.log("The element was created")
-        console.log(this)
-        console.log(this.$)
       },
       ready: function () {
-        console.log("The element is ready")
-        console.log(this)
-        console.log(this.$)
-        console.log(this.$.titulo)
+        setTimeout(()=>{
+          this.name = "Frontend Developer"
+        }, 3000)
       },
       attached: function () {
-        console.log("The element is in the document")
       }
     });
   </script>
