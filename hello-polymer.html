@@ -8,12 +8,36 @@
         display: block;
       }
     </style>
-    <h1>Hello world!</h1>
+    <h1>Hello [[name]],</h1>
+    <h2>You are [[age]] years old.</h2> 
     <content></content>
   </template>
   <script>
     Polymer({
-      is: 'hello-polymer'
+      is: "hello-polymer",
+      properties: {
+        name: {
+          type: String,
+          value: "default"
+        },
+        age: {
+          type: Number
+        }
+      },
+      created: function () {
+        console.log("The element was created")
+        console.log(this)
+        console.log(this.$)
+      },
+      ready: function () {
+        console.log("The element is ready")
+        console.log(this)
+        console.log(this.$)
+        console.log(this.$.titulo)
+      },
+      attached: function () {
+        console.log("The element is in the document")
+      }
     });
   </script>
 </dom-module>
